@@ -11,11 +11,15 @@ public class Estudiante {
     private HashMap<String,Double> materias =new HashMap<>();
 
     public Estudiante(int ageIngreso, String matricula, String name, String lastname, HashMap<String, Double> materias) {
-        this.ageIngreso = ageIngreso % 100;
+        this.ageIngreso = ageIngreso;
         this.matricula = matricula;
         this.name = name;
         this.lastname = lastname;
         this.materias = materias;
+    }
+
+    public int getAgeIngreso() {
+        return ageIngreso;
     }
 
     public Estudiante() {

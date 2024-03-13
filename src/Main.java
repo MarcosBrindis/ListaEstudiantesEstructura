@@ -7,6 +7,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
+    static Scanner tetlado=new Scanner(System.in);
+
     public static void main(String[] args) {
 
         //Holaaaa
@@ -14,7 +16,6 @@ public class Main {
 
         boolean finalizar=true;
         int selector;
-        Scanner tetlado=new Scanner(System.in);
         ArrayList<Login>lista= new ArrayList<>();
         ArrayList<Estudiante>listaEstudiantes=new ArrayList<>();
         HashMap<String,Estudiante> clonListaEstudiantes =new HashMap<>();
@@ -99,6 +100,7 @@ public class Main {
                                             case 1:
                                                 System.out.println("año de ingreso");
                                                 int ageIngreso=tetlado.nextInt();
+                                                ageIngreso = ageIngreso % 100;
                                                 System.out.println("ingrese nombre del estudiante");
                                                 String nombre=tetlado.next();
                                                 System.out.println("ingrese apellido");
@@ -178,19 +180,21 @@ public class Main {
                                                         if (!(clonListaEstudiantes.get(matriculaEditar) == null)) {
                                                             clonListaEstudiantes.get(matriculaEditar).inicializarMaterias();
                                                             System.out.println("Agrege la calificacion de Ingles");
-                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Inglés",tetlado.nextDouble());
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Inglés",agregarCalificacion());
                                                             System.out.println("Agrege la calificacion de POO");
-                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("POO",tetlado.nextDouble());
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("POO",agregarCalificacion());
                                                             System.out.println("Agrege la calificacion de Estructura de datos");
-                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Estructura de datos",tetlado.nextDouble());
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Estructura de datos",agregarCalificacion());
                                                             System.out.println("Agrege la calificacion de Cálculo diferencial");
-                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Cálculo diferencial",tetlado.nextDouble());
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Cálculo diferencial",agregarCalificacion());
                                                         } else {
                                                             System.out.println("Estudiante no encontrado");
                                                         }
                                                     } else {
                                                         System.out.println("La matricula debe llevar 6 caracteres");
                                                     }
+                                                } else {
+                                                    System.out.println("No hay estudiantes en la lista");
                                                 }
                                                 break;
                                             case 5:
@@ -243,5 +247,13 @@ public class Main {
 
         }
 
+    }
+    public static double agregarCalificacion(){
+        double calificacion = 0;
+        do {
+            System.out.println("Agrege calificacion de 10 a 100");
+            calificacion = tetlado.nextDouble();
+        } while (calificacion < 10 || calificacion > 100);
+        return calificacion;
     }
 }
