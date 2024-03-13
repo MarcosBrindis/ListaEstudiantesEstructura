@@ -172,6 +172,13 @@ public class Main {
 
                                                 break;
                                             case 5:
+                                                if (!listaEstudiantes.isEmpty()){
+                                                    for (Estudiante iterador : listaEstudiantes){
+                                                        System.out.println(iterador.imprimirDatos());
+                                                    }
+                                                } else {
+                                                    System.out.println("No hay estudiantes en la lista");
+                                                }
                                                 break;
                                             case 6:
                                                 repetir = false;
