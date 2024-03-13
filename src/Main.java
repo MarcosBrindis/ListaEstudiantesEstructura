@@ -128,6 +128,7 @@ public class Main {
                                                         String matriculaBusqueda = tetlado.next();
                                                         if (!(clonListaEstudiantes.get(matriculaBusqueda) == null)) {
                                                             System.out.println(clonListaEstudiantes.get(matriculaBusqueda).imprimirDatos());
+                                                            intentosBusqueda=3;
                                                         } else {
                                                             System.out.println("Estudiante no encontrado, intente denuevo");
                                                         }
@@ -138,6 +139,7 @@ public class Main {
                                                 }
                                                 break;
                                             case 4:
+
                                                 break;
                                             case 5:
                                                 break;
