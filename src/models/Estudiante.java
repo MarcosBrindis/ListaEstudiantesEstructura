@@ -11,7 +11,7 @@ public class Estudiante {
     private HashMap<String,Double> materias =new HashMap<>();
 
     public Estudiante(int ageIngreso, String matricula, String name, String lastname, HashMap<String, Double> materias) {
-        this.ageIngreso = ageIngreso;
+        this.ageIngreso = ageIngreso % 100;
         this.matricula = matricula;
         this.name = name;
         this.lastname = lastname;
@@ -21,45 +21,16 @@ public class Estudiante {
     public Estudiante() {
     }
 
-
-    public int getAgeIngreso() {
-        return ageIngreso;
-    }
-
-    public void setAgeIngreso(int ageIngreso) {
-        this.ageIngreso = ageIngreso;
-    }
-
     public String getMatricula() {
         return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 
     public HashMap<String, Double> getMaterias() {
         return materias;
     }
 
-    public void setMaterias(HashMap<String, Double> materias) {
-        this.materias = materias;
+    public void setMaterias(String materia, Double calificacion) {
+        materias.put(materia, calificacion);
     }
 
     public String generarNumeroMatricula(int ageIngreso) {

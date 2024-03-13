@@ -99,7 +99,6 @@ public class Main {
                                             case 1:
                                                 System.out.println("año de ingreso");
                                                 int ageIngreso=tetlado.nextInt();
-                                                ageIngreso = ageIngreso % 100;
                                                 System.out.println("ingrese nombre del estudiante");
                                                 String nombre=tetlado.next();
                                                 System.out.println("ingrese apellido");
@@ -138,7 +137,7 @@ public class Main {
                                                         }
                                                         if (!(clonListaEstudiantes.get(matriculaEliminar) == null)){
                                                             if (listaEstudiantes.remove(clonListaEstudiantes.get(matriculaEliminar)))
-                                                                System.out.println("Estudiante borrado con exito");;
+                                                                System.out.println("Estudiante borrado con exito");
                                                         } else {
                                                             System.out.println("Estudiante no encontrado");
                                                         }
@@ -169,7 +168,30 @@ public class Main {
                                                 }
                                                 break;
                                             case 4:
-
+                                                if (!listaEstudiantes.isEmpty()) {
+                                                    System.out.println("Ingrese matricula de alumno a editar");
+                                                    String matriculaEditar = tetlado.next();
+                                                    if (matriculaEditar.length() == 6) {
+                                                        for (Estudiante iterador : listaEstudiantes) {
+                                                            clonListaEstudiantes.put(iterador.getMatricula(), iterador);
+                                                        }
+                                                        if (!(clonListaEstudiantes.get(matriculaEditar) == null)) {
+                                                            clonListaEstudiantes.get(matriculaEditar).inicializarMaterias();
+                                                            System.out.println("Agrege la calificacion de Ingles");
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Inglés",tetlado.nextDouble());
+                                                            System.out.println("Agrege la calificacion de POO");
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("POO",tetlado.nextDouble());
+                                                            System.out.println("Agrege la calificacion de Estructura de datos");
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Estructura de datos",tetlado.nextDouble());
+                                                            System.out.println("Agrege la calificacion de Cálculo diferencial");
+                                                            clonListaEstudiantes.get(matriculaEditar).setMaterias("Cálculo diferencial",tetlado.nextDouble());
+                                                        } else {
+                                                            System.out.println("Estudiante no encontrado");
+                                                        }
+                                                    } else {
+                                                        System.out.println("La matricula debe llevar 6 caracteres");
+                                                    }
+                                                }
                                                 break;
                                             case 5:
                                                 if (!listaEstudiantes.isEmpty()){
@@ -210,7 +232,6 @@ public class Main {
                         finalizar=false;
                         System.out.println("programa finalizado");
                         break;
-
                     default:
                         System.out.println("opcion invalida intente de nuevo");
                         break;
