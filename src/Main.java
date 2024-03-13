@@ -129,7 +129,23 @@ public class Main {
                                                 }
                                                 break;
                                             case 2:
-                                                System.out.println("actualizado");
+                                                if (!listaEstudiantes.isEmpty()) {
+                                                    System.out.println("Ingrese matricula de alumno a eliminar");
+                                                    String matriculaEliminar = tetlado.next();
+                                                    if (matriculaEliminar.length() == 6) {
+                                                        for (Estudiante iterador : listaEstudiantes) {
+                                                            clonListaEstudiantes.put(iterador.getMatricula(), iterador);
+                                                        }
+                                                        if (!(clonListaEstudiantes.get(matriculaEliminar) == null)){
+                                                            if (listaEstudiantes.remove(clonListaEstudiantes.get(matriculaEliminar)))
+                                                                System.out.println("Estudiante borrado con exito");;
+                                                        } else {
+                                                            System.out.println("Estudiante no encontrado");
+                                                        }
+                                                    } else {
+                                                        System.out.println("La matricula debe llevar 6 caracteres");
+                                                    }
+                                                }
                                                 break;
                                             case 3:
                                                 if (!listaEstudiantes.isEmpty()) {
