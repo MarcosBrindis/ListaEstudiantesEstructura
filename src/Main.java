@@ -95,9 +95,7 @@ public class Main {
                                         selector=tetlado.nextInt();
                                         switch (selector){
                                             case 1:
-                                                
-
-
+                                                //Agregar alumno a la lista
                                                 break;
                                             case 2:
                                                 break;
