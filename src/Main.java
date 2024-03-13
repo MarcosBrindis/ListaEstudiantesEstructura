@@ -2,6 +2,7 @@ import models.Estudiante;
 import models.Login;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -100,9 +101,22 @@ public class Main {
                                                 System.out.println("ingrese nombre del estudiante");
                                                 String nombre=tetlado.next();
                                                 System.out.println("ingrese apellido");
-                                                String apellido=
+                                                String apellido=tetlado.next();
+                                                Estudiante estudiante = new Estudiante();
+                                                String matricula= estudiante.generarNumeroMatricula(ageIngreso);
+                                                for (Estudiante matriculaExiste:listaEstudiantes){
+                                                    if (matricula.equals(matriculaExiste.getMatricula())){
+                                                        System.out.println("matricula ya existe");
+                                                    }
+                                                    else {
+                                                        Estudiante nuevoEstudiante=new Estudiante(ageIngreso,matricula,nombre,apellido,estudiante.getMaterias());
+                                                        listaEstudiantes.add(nuevoEstudiante);
+                                                    }
+                                                }
 
                                                 break;
+
+
                                             case 2:
                                                 System.out.println("actualizado");
                                                 break;
@@ -117,7 +131,7 @@ public class Main {
                                                 break;
 
                                         }
-                                        } catch (java.util.InputMismatchException e) {
+                                        } catch (InputMismatchException e) {
                                             System.out.println("Error: Ingresa un número válido");
                                             tetlado.next();
                                         }
@@ -145,7 +159,7 @@ public class Main {
                         System.out.println("opcion invalida intente de nuevo");
                         break;
                 }
-            } catch (java.util.InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Error: Ingresa un número válido");
                 tetlado.next();
             }

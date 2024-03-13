@@ -18,6 +18,10 @@ public class Estudiante {
         this.materias = materias;
     }
 
+    public Estudiante() {
+    }
+
+
     public int getAgeIngreso() {
         return ageIngreso;
     }
