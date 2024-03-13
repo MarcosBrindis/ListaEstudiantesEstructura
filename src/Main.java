@@ -100,13 +100,29 @@ public class Main {
                                                 System.out.println("ingrese nombre del estudiante");
                                                 String nombre=tetlado.next();
                                                 System.out.println("ingrese apellido");
-                                                String apellido=
-
                                                 break;
                                             case 2:
                                                 System.out.println("actualizado");
                                                 break;
                                             case 3:
+                                                if (!listaEstudiantes.isEmpty()) {
+                                                    for (Estudiante iterador : listaEstudiantes) {
+                                                        clonListaEstudiantes.put(iterador.getMatricula(), iterador);
+                                                    }
+                                                    int intentosBusqueda = 0;
+                                                    do {
+                                                        System.out.println("Ingrese la matricula a buscar");
+                                                        String matriculaBusqueda = tetlado.next();
+                                                        if (!(clonListaEstudiantes.get(matriculaBusqueda) == null)) {
+                                                            System.out.println(clonListaEstudiantes.get(matriculaBusqueda).imprimirDatos());
+                                                        } else {
+                                                            System.out.println("Estudiante no encontrado, intente denuevo");
+                                                        }
+                                                        intentosBusqueda++;
+                                                    } while (intentosBusqueda < 3);
+                                                } else {
+                                                    System.out.println("No hay estudiantes en la lista");
+                                                }
                                                 break;
                                             case 4:
                                                 break;
