@@ -82,7 +82,8 @@ public class Main {
                                     System.out.println("Ingrese su contraseña:");
                                     String passwordBusqueda = tetlado.next();
                                     if (passwordBusqueda.equals(u1.getPassword())) {
-
+                                        boolean salirmenu=true;
+                                        do {
                                         System.out.println("************************");
                                         System.out.println("***** Bienvenido ********");
                                         System.out.println("************************\n");
@@ -98,17 +99,30 @@ public class Main {
                                             case 1:
                                                 System.out.println("año de ingreso");
                                                 int ageIngreso=tetlado.nextInt();
+                                                ageIngreso = ageIngreso % 100;
                                                 System.out.println("ingrese nombre del estudiante");
                                                 String nombre=tetlado.next();
                                                 System.out.println("ingrese apellido");
                                                 String apellido=tetlado.next();
                                                 Estudiante estudiante = new Estudiante();
                                                 String matricula= estudiante.generarNumeroMatricula(ageIngreso);
-                                                for (Estudiante matriculaExiste:listaEstudiantes){
-                                                    if (matricula.equals(matriculaExiste.getMatricula())){
-                                                        System.out.println("matricula ya existe");
+                                                System.out.println("la matricula de "+ nombre+" es:"+matricula);
+                                                boolean noEncontrada=true;
+
+                                                if (listaEstudiantes.isEmpty()){
+                                                    Estudiante nuevoEstudiante=new Estudiante(ageIngreso,matricula,nombre,apellido,estudiante.getMaterias());
+                                                    listaEstudiantes.add(nuevoEstudiante);
+                                                }
+                                                else{
+                                                    for (Estudiante matriculaExiste:listaEstudiantes){
+                                                        if (matricula.equals(matriculaExiste.getMatricula())){
+                                                            System.out.println("matricula ya existe");
+                                                        }
+                                                        else {
+                                                            noEncontrada=false;
+                                                        }
                                                     }
-                                                    else {
+                                                    if (!noEncontrada){
                                                         Estudiante nuevoEstudiante=new Estudiante(ageIngreso,matricula,nombre,apellido,estudiante.getMaterias());
                                                         listaEstudiantes.add(nuevoEstudiante);
                                                     }
@@ -130,7 +144,7 @@ public class Main {
                                                             System.out.println(clonListaEstudiantes.get(matriculaBusqueda).imprimirDatos());
                                                             intentosBusqueda=3;
                                                         } else {
-                                                            System.out.println("Estudiante no encontrado, intente denuevo");
+                                                            System.out.println("Estudiante no encontrado");
                                                         }
                                                         intentosBusqueda++;
                                                     } while (intentosBusqueda < 3);
@@ -145,6 +159,7 @@ public class Main {
                                                 break;
                                             case 6:
                                                 repetir = false;
+                                                salirmenu=false;
                                                 break;
 
                                         }
@@ -152,6 +167,7 @@ public class Main {
                                             System.out.println("Error: Ingresa un número válido");
                                             tetlado.next();
                                         }
+                                        }while (salirmenu);
                                     } else {
                                         if (i == 2)
                                             finalizar = false;
