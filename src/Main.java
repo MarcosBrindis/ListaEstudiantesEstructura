@@ -11,7 +11,7 @@ public class Main {
         //Holaaaa
         //Intentando otra vez
 
-        boolean finalizar=false;
+        boolean finalizar=true;
         int selector;
         Scanner tetlado=new Scanner(System.in);
         ArrayList<Login>lista= new ArrayList<>();
@@ -95,7 +95,13 @@ public class Main {
                                         selector=tetlado.nextInt();
                                         switch (selector){
                                             case 1:
-                                                //Agregar alumno a la lista
+                                                System.out.println("año de ingreso");
+                                                int ageIngreso=tetlado.nextInt();
+                                                System.out.println("ingrese nombre del estudiante");
+                                                String nombre=tetlado.next();
+                                                System.out.println("ingrese apellido");
+                                                String apellido=
+
                                                 break;
                                             case 2:
                                                 System.out.println("actualizado");

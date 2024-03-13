@@ -10,6 +10,53 @@ public class Estudiante {
     private String lastname;
     private HashMap<String,Double> materias =new HashMap<>();
 
+    public Estudiante(int ageIngreso, String matricula, String name, String lastname, HashMap<String, Double> materias) {
+        this.ageIngreso = ageIngreso;
+        this.matricula = matricula;
+        this.name = name;
+        this.lastname = lastname;
+        this.materias = materias;
+    }
+
+    public int getAgeIngreso() {
+        return ageIngreso;
+    }
+
+    public void setAgeIngreso(int ageIngreso) {
+        this.ageIngreso = ageIngreso;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public HashMap<String, Double> getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(HashMap<String, Double> materias) {
+        this.materias = materias;
+    }
 
     public String generarNumeroMatricula(int ageIngreso) {
         Random rand = new Random();
