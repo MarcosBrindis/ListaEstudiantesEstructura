@@ -101,7 +101,6 @@ public class Main {
                                                 System.out.println("ingrese nombre del estudiante");
                                                 String nombre=tetlado.next();
                                                 System.out.println("ingrese apellido");
-<<<<<<< HEAD
                                                 String apellido=tetlado.next();
                                                 Estudiante estudiante = new Estudiante();
                                                 String matricula= estudiante.generarNumeroMatricula(ageIngreso);
@@ -114,12 +113,7 @@ public class Main {
                                                         listaEstudiantes.add(nuevoEstudiante);
                                                     }
                                                 }
-
-=======
->>>>>>> fc150192e3ddb8d97bf38d13627ea9230d2702d1
                                                 break;
-
-
                                             case 2:
                                                 System.out.println("actualizado");
                                                 break;
