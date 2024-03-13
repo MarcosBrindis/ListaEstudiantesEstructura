@@ -9,8 +9,9 @@ public class Main {
     public static void main(String[] args) {
 
         //Holaaaa
+        //Intentando otra vez
 
-        boolean finalizar=true;
+        boolean finalizar=false;
         int selector;
         Scanner tetlado=new Scanner(System.in);
         ArrayList<Login>lista= new ArrayList<>();
