@@ -82,7 +82,8 @@ public class Main {
                                     System.out.println("Ingrese su contraseña:");
                                     String passwordBusqueda = tetlado.next();
                                     if (passwordBusqueda.equals(u1.getPassword())) {
-
+                                        boolean salirmenu=true;
+                                        do {
                                         System.out.println("************************");
                                         System.out.println("***** Bienvenido ********");
                                         System.out.println("************************\n");
@@ -101,25 +102,32 @@ public class Main {
                                                 System.out.println("ingrese nombre del estudiante");
                                                 String nombre=tetlado.next();
                                                 System.out.println("ingrese apellido");
-<<<<<<< HEAD
                                                 String apellido=tetlado.next();
                                                 Estudiante estudiante = new Estudiante();
                                                 String matricula= estudiante.generarNumeroMatricula(ageIngreso);
-                                                for (Estudiante matriculaExiste:listaEstudiantes){
-                                                    if (matricula.equals(matriculaExiste.getMatricula())){
-                                                        System.out.println("matricula ya existe");
+                                                System.out.println("la matricula de "+ nombre+" es:"+matricula);
+                                                boolean noEncontrada=true;
+
+                                                if (listaEstudiantes.isEmpty()){
+                                                    Estudiante nuevoEstudiante=new Estudiante(ageIngreso,matricula,nombre,apellido,estudiante.getMaterias());
+                                                    listaEstudiantes.add(nuevoEstudiante);
+                                                }
+                                                else{
+                                                    for (Estudiante matriculaExiste:listaEstudiantes){
+                                                        if (matricula.equals(matriculaExiste.getMatricula())){
+                                                            System.out.println("matricula ya existe");
+                                                        }
+                                                        else {
+                                                            noEncontrada=false;
+                                                        }
                                                     }
-                                                    else {
+                                                    if (!noEncontrada){
                                                         Estudiante nuevoEstudiante=new Estudiante(ageIngreso,matricula,nombre,apellido,estudiante.getMaterias());
                                                         listaEstudiantes.add(nuevoEstudiante);
                                                     }
                                                 }
-
-=======
->>>>>>> fc150192e3ddb8d97bf38d13627ea9230d2702d1
                                                 break;
-
-
+                                                
                                             case 2:
                                                 System.out.println("actualizado");
                                                 break;
@@ -149,6 +157,7 @@ public class Main {
                                                 break;
                                             case 6:
                                                 repetir = false;
+                                                salirmenu=false;
                                                 break;
 
                                         }
@@ -156,6 +165,7 @@ public class Main {
                                             System.out.println("Error: Ingresa un número válido");
                                             tetlado.next();
                                         }
+                                        }while (salirmenu);
                                     } else {
                                         if (i == 2)
                                             finalizar = false;
